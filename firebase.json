@@ -1,0 +1,16 @@
+{
+  "hosting": [
+    {
+      "target": "spa",
+      "site": "ekd-goalie-web",
+      "public": "./dist/spa",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+    },
+    {
+      "target": "pwa",
+      "site": "ekd-goalie",
+      "public": "./dist/pwa",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+    }
+  ]
+}

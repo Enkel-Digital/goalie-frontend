@@ -8,14 +8,17 @@
   "scripts": {
     "dev": "quasar dev",
     "build": "quasar build",
+    "build:spa": "quasar build -m spa",
     "build:pwa": "quasar build -m pwa",
     "lint": "eslint --ext .js,.vue ./",
-    "test": "echo \"No test specified\" && exit 0"
+    "deploy:spa": "npx firebase use default && npm run build:spa && npx firebase target:apply hosting spa ekd-goalie-web && npx firebase deploy --only hosting:spa",
+    "deploy:pwa": "npx firebase use default && npm run build:pwa && npx firebase target:apply hosting pwa ekd-goalie && npx firebase deploy --only hosting:pwa"
   },
   "dependencies": {
     "@quasar/extras": "^1.9.10",
     "axios": "^0.21.0",
     "core-js": "^3.7.0",
+    "firebase": "^8.0.2",
     "quasar": "^1.14.3"
   },
   "devDependencies": {

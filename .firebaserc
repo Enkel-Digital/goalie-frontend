@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "ekd-goalie"
+  },
+  "targets": {
+    "ekd-goalie": {
+      "hosting": {
+        "spa": [
+          "ekd-goalie-web"
+        ],
+        "pwa": [
+          "ekd-goalie"
+        ]
+      }
+    }
+  }
+}
