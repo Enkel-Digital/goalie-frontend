@@ -2,9 +2,15 @@
 .thumbs.db
 node_modules
 
+# Ignore vscode, because quasar generates this and this .gitignore is used as the ignore file for prettier formatting too.
+.vscode
+
 # Quasar core related directories
 .quasar
 /dist
+
+# Firebase cache
+.firebase/
 
 # Cordova related directories and files
 /src-cordova/node_modules

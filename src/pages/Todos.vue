@@ -64,9 +64,7 @@
     <div v-if="!todos.length" class="no-todos absolute-center">
       <q-icon name="check" size="100px" color="primary" />
 
-      <div class="text-h5 text-primary text-center">
-        No Todos
-      </div>
+      <div class="text-h5 text-primary text-center">No Todos</div>
     </div>
   </q-page>
 </template>
@@ -79,7 +77,7 @@ export default {
     return {
       newTodo: "",
 
-      todos: []
+      todos: [],
     };
   },
 
@@ -92,7 +90,7 @@ export default {
         // id: Math.trunc(Math.random() * 100),
         id: this.todos.length + 1,
         text: this.newTodo,
-        done: false
+        done: false,
       });
 
       // Clear the text container once new container is created
@@ -100,7 +98,7 @@ export default {
     },
 
     toggleTodoState(todoID) {
-      const todo = this.todos.find(todo => todoID === todo.id);
+      const todo = this.todos.find((todo) => todoID === todo.id);
       todo.done = !todo.done;
     },
 
@@ -111,18 +109,18 @@ export default {
           title: "Confirm",
           message: "Are you sure??",
           cancel: true,
-          persistent: true
+          persistent: true,
         })
         .onOk(() => {
           this.todos.splice(
-            this.todos.findIndex(todo => todoID === todo.id),
+            this.todos.findIndex((todo) => todoID === todo.id),
             1
           );
 
           this.$q.notify("Todo deleted!");
         });
-    }
-  }
+    },
+  },
 };
 </script>
 

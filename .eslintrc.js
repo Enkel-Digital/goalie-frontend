@@ -7,17 +7,20 @@ module.exports = {
   parserOptions: {
     parser: "babel-eslint",
     ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
-    sourceType: "module" // Allows for the use of imports
+    sourceType: "module", // Allows for the use of imports
   },
 
   env: {
-    browser: true
+    browser: true,
+
+    // Used for config files like this, where node globals like "module" is needed
+    node: true,
   },
 
   // Rules order is important, please avoid shuffling them
   extends: [
     // Base ESLint recommended rules
-    // 'eslint:recommended',
+    "eslint:recommended",
 
     // Uncomment any of the lines below to choose desired strictness,
     // but leave only one uncommented!
@@ -30,13 +33,13 @@ module.exports = {
     // usage with Prettier, provided by 'eslint-config-prettier'.
     "prettier",
 
-    "prettier/vue"
+    "prettier/vue",
   ],
 
   plugins: [
     // https://eslint.vuejs.org/user-guide/#why-doesn-t-it-work-on-vue-file
     // required to lint *.vue files
-    "vue"
+    "vue",
 
     // https://github.com/typescript-eslint/typescript-eslint/issues/389#issuecomment-509292674
     // Prettier has not been included as plugin to avoid performance impact
@@ -49,7 +52,7 @@ module.exports = {
     __statics: true,
     process: true,
     Capacitor: true,
-    chrome: true
+    chrome: true,
   },
 
   // add your custom rules here
@@ -57,6 +60,9 @@ module.exports = {
     "prefer-promise-reject-errors": "off",
 
     // allow debugger during development only
-    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off"
-  }
+    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
+    // "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
+    "no-unused-vars": process.env.NODE_ENV === "production" ? "error" : "off",
+    "comma-dangle": ["error", "only-multiline"],
+  },
 };

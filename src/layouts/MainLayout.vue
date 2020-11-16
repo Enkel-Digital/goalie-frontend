@@ -40,7 +40,11 @@
       :breakpoint="800"
     >
       <q-scroll-area
-        style="height: calc(100% - 186px); margin-top: 186px; border-right: 1px solid #ddd"
+        style="
+          height: calc(100% - 186px);
+          margin-top: 186px;
+          border-right: 1px solid #ddd;
+        "
       >
         <q-list padding>
           <q-item clickable v-ripple>
@@ -48,9 +52,7 @@
               <q-icon name="inbox" />
             </q-item-section>
 
-            <q-item-section>
-              Inbox
-            </q-item-section>
+            <q-item-section> Inbox </q-item-section>
           </q-item>
 
           <q-item clickable v-ripple>
@@ -58,9 +60,7 @@
               <q-icon name="star" />
             </q-item-section>
 
-            <q-item-section>
-              Goals
-            </q-item-section>
+            <q-item-section> Goals </q-item-section>
           </q-item>
 
           <q-item to="/" exact clickable v-ripple>
@@ -68,9 +68,7 @@
               <q-icon name="list" />
             </q-item-section>
 
-            <q-item-section>
-              Todos
-            </q-item-section>
+            <q-item-section> Todos </q-item-section>
           </q-item>
 
           <q-item to="/help" exact clickable v-ripple>
@@ -78,9 +76,7 @@
               <q-icon name="help" />
             </q-item-section>
 
-            <q-item-section>
-              Help
-            </q-item-section>
+            <q-item-section> Help </q-item-section>
           </q-item>
         </q-list>
       </q-scroll-area>
@@ -116,15 +112,15 @@ export default {
 
   data() {
     return {
-      leftDrawerOpen: false
+      leftDrawerOpen: false,
     };
   },
 
   computed: {
     todaysDate() {
       return date.formatDate(Date.now(), "dddd D MMMM");
-    }
-  }
+    },
+  },
 };
 </script>
 

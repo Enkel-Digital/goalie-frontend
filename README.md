@@ -5,7 +5,8 @@ Goalie is yet another Todo App that helps you track your todos and how your todo
 
 ## Install the dependencies
 ```bash
-npm install
+# Using yarn instead of npm as npm has some issues on windows, and there are some quirks when used with quasar
+yarn install
 ```
 
 
