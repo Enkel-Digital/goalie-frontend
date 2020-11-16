@@ -8,7 +8,7 @@
           round
           icon="menu"
           aria-label="Menu"
-          @click="leftDrawerOpen = !leftDrawerOpen"
+          @click="$refs.sideNavBar.show = !$refs.sideNavBar.show"
         />
 
         <!-- <q-toolbar-title>
@@ -30,79 +30,7 @@
       </q-img>
     </q-header>
 
-    <!-- @todo Remove the hardcoded 186px heights -->
-    <!-- @todo Fix the links, the to attribute -->
-    <!-- @todo Add in the active attribute using vue router or something, currently using exact attribute -->
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      :width="250"
-      :breakpoint="800"
-    >
-      <q-scroll-area
-        style="
-          height: calc(100% - 186px);
-          margin-top: 186px;
-          border-right: 1px solid #ddd;
-        "
-      >
-        <q-list padding>
-          <q-item clickable v-ripple>
-            <q-item-section avatar>
-              <q-icon name="inbox" />
-            </q-item-section>
-
-            <q-item-section> Inbox </q-item-section>
-          </q-item>
-
-          <q-item clickable v-ripple>
-            <q-item-section avatar>
-              <q-icon name="star" />
-            </q-item-section>
-
-            <q-item-section> Goals </q-item-section>
-          </q-item>
-
-          <q-item to="/" exact clickable v-ripple>
-            <q-item-section avatar>
-              <q-icon name="list" />
-            </q-item-section>
-
-            <q-item-section> Todos </q-item-section>
-          </q-item>
-
-          <q-item to="/help" exact clickable v-ripple>
-            <q-item-section avatar>
-              <q-icon name="help" />
-            </q-item-section>
-
-            <q-item-section> Help </q-item-section>
-          </q-item>
-
-          <q-item to="/about" exact clickable v-ripple>
-            <q-item-section avatar>
-              <q-icon name="info" />
-            </q-item-section>
-
-            <q-item-section> About </q-item-section>
-          </q-item>
-        </q-list>
-      </q-scroll-area>
-
-      <q-img
-        class="absolute-top"
-        src="https://cdn.quasar.dev/img/material.png"
-        style="height: 186px"
-      >
-        <div class="absolute-bottom bg-transparent">
-          <q-avatar size="56px" class="q-mb-sm">
-            <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
-          </q-avatar>
-          <div class="text-weight-bold">Jaimeloeuf</div>
-          <div>@Jaimeloeuf</div>
-        </div>
-      </q-img>
-    </q-drawer>
+    <SideNavBar ref="sideNavBar" />
 
     <q-page-container>
       <keep-alive>
@@ -114,15 +42,12 @@
 
 <script>
 import { date } from "quasar";
+import SideNavBar from "../components/SideNavBar.vue";
 
 export default {
   name: "MainLayout",
 
-  data() {
-    return {
-      leftDrawerOpen: false,
-    };
-  },
+  components: { SideNavBar },
 
   computed: {
     todaysDate() {
