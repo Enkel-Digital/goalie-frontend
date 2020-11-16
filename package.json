@@ -14,7 +14,8 @@
     "format": "prettier --write --ignore-path .gitignore ./",
     "test": "echo \"No test specified\" && exit 0",
     "deploy:spa": "npx firebase use default && npm run build:spa && npx firebase target:apply hosting spa ekd-goalie-web && npx firebase deploy --only hosting:spa",
-    "deploy:pwa": "npx firebase use default && npm run build:pwa && npx firebase target:apply hosting pwa ekd-goalie && npx firebase deploy --only hosting:pwa"
+    "deploy:pwa": "npx firebase use default && npm run build:pwa && npx firebase target:apply hosting pwa ekd-goalie && npx firebase deploy --only hosting:pwa",
+    "generate-icon": "npx icongenie generate --icon icon.png"
   },
   "dependencies": {
     "@quasar/extras": "^1.9.10",
@@ -25,6 +26,7 @@
   },
   "devDependencies": {
     "@quasar/app": "^2.1.6",
+    "@quasar/icongenie": "^2.3.3",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.13.0",
     "eslint-config-prettier": "^6.15.0",
