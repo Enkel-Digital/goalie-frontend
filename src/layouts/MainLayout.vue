@@ -26,8 +26,7 @@
 
       <!-- @todo Dont use relative path -->
       <!-- src="../assets/mountains_small.jpg" -->
-      <q-img src="../assets/mountains.jpg" class="header-image absolute-top">
-      </q-img>
+      <q-img src="../assets/mountains.jpg" class="header-image absolute-top" />
     </q-header>
 
     <SideNavBar ref="sideNavBar" />

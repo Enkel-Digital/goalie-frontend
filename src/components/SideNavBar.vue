@@ -27,7 +27,7 @@
           <q-item-section> Goals </q-item-section>
         </q-item>
 
-        <q-item to="/" exact clickable v-ripple>
+        <q-item :to="{ name: 'todos' }" exact clickable v-ripple>
           <q-item-section avatar>
             <q-icon name="list" />
           </q-item-section>
@@ -35,7 +35,7 @@
           <q-item-section> Todos </q-item-section>
         </q-item>
 
-        <q-item to="/help" exact clickable v-ripple>
+        <q-item :to="{ name: 'help' }" exact clickable v-ripple>
           <q-item-section avatar>
             <q-icon name="help" />
           </q-item-section>
@@ -43,7 +43,7 @@
           <q-item-section> Help </q-item-section>
         </q-item>
 
-        <q-item to="/about" exact clickable v-ripple>
+        <q-item :to="{ name: 'about' }" exact clickable v-ripple>
           <q-item-section avatar>
             <q-icon name="info" />
           </q-item-section>
