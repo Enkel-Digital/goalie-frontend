@@ -50,6 +50,14 @@
 
           <q-item-section> About </q-item-section>
         </q-item>
+
+        <q-item @click="logout" exact clickable v-ripple>
+          <q-item-section avatar>
+            <q-icon name="logout" />
+          </q-item-section>
+
+          <q-item-section> Logout </q-item-section>
+        </q-item>
       </q-list>
     </q-scroll-area>
 
@@ -70,6 +78,8 @@
 </template>
 
 <script>
+import logout from "../utils/logout.js";
+
 export default {
   name: "SideNavBar",
 
@@ -86,6 +96,10 @@ export default {
     return {
       show: false,
     };
+  },
+
+  methods: {
+    logout,
   },
 };
 </script>
