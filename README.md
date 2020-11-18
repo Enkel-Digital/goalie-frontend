@@ -18,7 +18,7 @@ quasar dev
 
 ### Lint the files
 ```bash
-npm run lint
+yarn run lint
 ```
 
 
@@ -26,6 +26,9 @@ npm run lint
 ```bash
 quasar build
 ```
+
+### Others
+For the other commands and scripts to run to build/deploy and more, checkout scripts section of [package.json](./package.json)
 
 
 ### Customize the configuration
