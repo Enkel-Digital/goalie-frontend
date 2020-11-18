@@ -14,8 +14,6 @@ firebase.initializeApp({
   appId: "1:751902461041:web:41cbba8eb6266405995fd0",
 });
 
-// @todo Firebase auth lib should have a created or loaded hook, to prevent this stupid loading shit.
-
 /**
  * Function is async to ensure that boot only continues after auth state has changed
  * It waits for firebase to finish initialization and loading auth lib before continuing with boot

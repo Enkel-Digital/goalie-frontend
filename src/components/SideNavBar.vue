@@ -19,7 +19,7 @@
           <q-item-section> Inbox </q-item-section>
         </q-item>
 
-        <q-item clickable v-ripple>
+        <q-item :to="{ name: 'goals' }" exact clickable v-ripple>
           <q-item-section avatar>
             <q-icon name="star" />
           </q-item-section>
