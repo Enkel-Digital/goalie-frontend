@@ -1,25 +1,6 @@
 <template>
   <!-- <q-page class="flex flex-center bg-grey-3 column"> -->
   <q-page class="bg-grey-3 column">
-    <!-- @todo Perhaps move to a big floating Plus button at the bottom right of the screen, esp on mobile view -->
-    <!-- @todo Add keyboard trigger for desktop or bigger, where the character "N|n" triggers the function too -->
-    <div class="row q-pa-sm bg-primary">
-      <q-input
-        v-model="newTodo"
-        @keydown.enter="addNewTodo"
-        class="col"
-        placeholder="Add new thing to do!"
-        bg-color="white"
-        filled
-        square
-        dense
-      >
-        <template v-slot:append>
-          <q-btn @click="addNewTodo" round dense flat icon="add" />
-        </template>
-      </q-input>
-    </div>
-
     <q-list class="bg-white" separator bordered>
       <!--
           Rendering a <label> tag (notice tag="label")
@@ -65,6 +46,25 @@
       <q-icon name="check" size="100px" color="primary" />
 
       <div class="text-h5 text-primary text-center">No Todos</div>
+    </div>
+
+    <!-- @todo Perhaps move to a big floating Plus button at the bottom right of the screen, esp on mobile view -->
+    <!-- @todo Add keyboard trigger for desktop or bigger, where the character "N|n" triggers the function too -->
+    <div class="fixed-bottom row q-pa-xs bg-primary">
+      <q-input
+        v-model="newTodo"
+        @keydown.enter="addNewTodo"
+        class="col"
+        placeholder="Add new thing to do!"
+        bg-color="white"
+        filled
+        square
+        dense
+      >
+        <template v-slot:append>
+          <q-btn @click="addNewTodo" round dense flat icon="add" />
+        </template>
+      </q-input>
     </div>
   </q-page>
 </template>
