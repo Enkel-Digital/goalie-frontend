@@ -7,10 +7,7 @@ firebase.initializeApp({
   // @todo (goalie-app) Should use different firebase configs for the diff environments
   apiKey: "AIzaSyBMgYS3k6ZC4whTEwll120-oLheCmuEMwU",
   authDomain: "ekd-goalie.firebaseapp.com",
-  databaseURL: "https://ekd-goalie.firebaseio.com",
   projectId: "ekd-goalie",
-  storageBucket: "ekd-goalie.appspot.com",
-  messagingSenderId: "751902461041",
   appId: "1:751902461041:web:41cbba8eb6266405995fd0",
 });
 
