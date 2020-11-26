@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header>
+    <q-header class="fixed-top">
       <q-toolbar>
         <q-btn
           flat
@@ -18,6 +18,7 @@
       </q-toolbar>
 
       <div class="q-px-lg q-pt-xl q-mb-md">
+        <!-- @todo Make this changeable -->
         <div class="text-h3">Goalie</div>
         <div class="text-subtitle1">
           {{ todaysDate }}
