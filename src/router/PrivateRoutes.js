@@ -20,6 +20,11 @@ const routes = [
         component: () => import("pages/Todos.vue"),
       },
       {
+        name: "reflections",
+        path: "/reflections",
+        component: () => import("pages/Reflections.vue"),
+      },
+      {
         name: "goals",
         path: "/goals",
         component: () => import("pages/Goals.vue"),

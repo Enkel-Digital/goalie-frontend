@@ -35,6 +35,14 @@
           <q-item-section> Todos </q-item-section>
         </q-item>
 
+        <q-item :to="{ name: 'reflections' }" exact clickable v-ripple>
+          <q-item-section avatar>
+            <q-icon name="list" />
+          </q-item-section>
+
+          <q-item-section> Reflection </q-item-section>
+        </q-item>
+
         <q-item :to="{ name: 'help' }" exact clickable v-ripple>
           <q-item-section avatar>
             <q-icon name="help" />
