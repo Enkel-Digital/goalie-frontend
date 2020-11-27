@@ -26,21 +26,21 @@
 
     <q-list class="bg-white" separator bordered>
       <q-item
-        v-for="todo in goals"
-        :key="todo.id"
-        :class="{ 'todo-completed': todo.done }"
+        v-for="goal in goals"
+        :key="goal.id"
+        :class="{ 'goal-completed': goal.done }"
       >
         <q-item-section avatar>
-          <q-checkbox v-model="todo.done" color="primary" />
+          <q-checkbox v-model="goal.done" color="primary" />
         </q-item-section>
 
         <q-item-section>
-          <q-item-label>{{ todo.text }}</q-item-label>
+          <q-item-label>{{ goal.text }}</q-item-label>
         </q-item-section>
 
-        <q-item-section v-if="todo.done" side>
+        <q-item-section v-if="goal.done" side>
           <q-btn
-            @click.stop="deleteTodo(todo.id)"
+            @click.stop="deleteGoal(goal.id)"
             flat
             round
             dense
@@ -73,7 +73,7 @@ export default {
 
   methods: {
     addNewGoal() {
-      // Prevent new todo from being created with empty string
+      // Prevent new goal from being created with empty string
       if (!this.newGoal) return;
 
       this.goals.push({
@@ -87,13 +87,13 @@ export default {
       this.newGoal = "";
     },
 
-    toggleGoalState(todoID) {
-      const todo = this.goals.find((todo) => todoID === todo.id);
-      todo.done = !todo.done;
+    toggleGoalState(goalID) {
+      const goal = this.goals.find((goal) => goalID === goal.id);
+      goal.done = !goal.done;
     },
 
-    deleteTodo(todoID) {
-      // @todo Is this needed? Or let this be a setting?
+    deleteGoal(goalID) {
+      // @goal Is this needed? Or let this be a setting?
       this.$q
         .dialog({
           title: "Delete Goal Permanently",
@@ -103,7 +103,7 @@ export default {
         })
         .onOk(() => {
           this.goals.splice(
-            this.goals.findIndex((todo) => todoID === todo.id),
+            this.goals.findIndex((goal) => goalID === goal.id),
             1
           );
 
@@ -115,7 +115,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.todo-completed {
+.goal-completed {
   // Needed to prevent the delete icon from having a strike through too
   .q-item__label {
     text-decoration: line-through;
