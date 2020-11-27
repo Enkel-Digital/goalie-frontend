@@ -21,27 +21,13 @@
     </div>
 
     <q-list class="bg-white" separator bordered>
-      <!--
-          Rendering a <label> tag (notice tag="label")
-          so QCheckboxes will respond to clicks on QItems to
-          change Toggle state.
-        -->
-
       <q-item
         v-for="todo in goals"
         :key="todo.id"
-        @click="toggleGoalState(todo.id)"
         :class="{ 'todo-completed': todo.done }"
-        clickable
-        v-ripple
       >
         <q-item-section avatar>
-          <!-- Using no-pointer-events class to ignore all clicks on the checkbox, to let q-item handle click events -->
-          <q-checkbox
-            v-model="todo.done"
-            class="no-pointer-events"
-            color="primary"
-          />
+          <q-checkbox v-model="todo.done" color="primary" />
         </q-item-section>
 
         <q-item-section>
