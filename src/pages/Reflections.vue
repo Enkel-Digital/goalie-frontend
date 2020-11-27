@@ -10,22 +10,18 @@
 
       <!-- @todo Perhaps move to a big floating Plus button at the bottom right of the screen, esp on mobile view -->
       <!-- @todo Add keyboard trigger for desktop or bigger, where the character "N|n" triggers the function too -->
-      <div class="row q-pa-xs bg-primary">
-        <q-input
-          v-model="newTodo"
-          @keydown.enter="addNewTodo"
-          class="col"
-          placeholder="What did you do today?"
-          bg-color="white"
-          filled
-          square
-          dense
-        >
-          <template v-slot:append>
-            <q-btn @click="addNewTodo" round dense flat icon="add" />
-          </template>
-        </q-input>
-      </div>
+      <q-select
+        use-input
+        :value="newTodo"
+        hide-selected
+        fill-input
+        input-debounce="0"
+        label="What did you do Today?"
+        :options="options"
+        @filter="filterFn"
+        @filter-abort="abortFilterFn"
+        @keydown.enter="addNewTodo"
+      />
 
       <!-- dropdown here for the input box -->
 
@@ -62,18 +58,45 @@
 </template>
 
 <script>
+// These should be the past things the user already did, pre load it first
+const stringOptions = ["Workout", "Eat healthy", "Studied", "Work on startup"];
+
 export default {
-  name: "Todos",
+  name: "Reflections",
 
   data() {
     return {
       newTodo: "",
 
       todos: [],
+
+      options: stringOptions,
     };
   },
 
   methods: {
+    filterFn(val, update, abort) {
+      // call abort() at any time if you can't retrieve data somehow
+
+      setTimeout(update, 600, () => {
+        if (val === "") this.options = stringOptions;
+        else {
+          // @todo This can probably be optimized
+          const needle = val.toLowerCase();
+          this.options = stringOptions.filter(
+            (option) => option.toLowerCase().indexOf(needle) > -1
+          );
+        }
+
+        console.log(this.newTodo);
+      });
+    },
+
+    abortFilterFn() {
+      // Can kill any network calls if there any...
+      // console.log("delayed filter aborted");
+    },
+
     addNewTodo() {
       // Prevent new todo from being created with empty string
       if (!this.newTodo) return;
