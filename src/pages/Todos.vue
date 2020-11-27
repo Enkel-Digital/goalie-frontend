@@ -43,7 +43,7 @@
     </q-list>
 
     <div v-if="!todos.length" class="no-todos absolute-center">
-      <q-icon name="check" size="100px" color="primary" />
+      <q-icon name="check" size="50vw" color="primary" />
 
       <div class="text-h5 text-primary text-center">No Todos</div>
     </div>

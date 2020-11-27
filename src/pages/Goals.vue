@@ -20,6 +20,10 @@
       </q-input>
     </div>
 
+    <!-- @todo Add a ordering system to the goals
+        So we can look at long/mid/short term goals in their respective row groupings.
+    -->
+
     <q-list class="bg-white" separator bordered>
       <q-item
         v-for="todo in goals"
@@ -48,9 +52,9 @@
     </q-list>
 
     <div v-if="!goals.length" class="no-goals absolute-center">
-      <q-icon name="check" size="100px" color="primary" />
+      <q-icon name="check" size="50vw" color="primary" />
 
-      <div class="text-h5 text-primary text-center">No Goals</div>
+      <div class="text-h5 text-primary text-center">Create a new Goal!</div>
     </div>
   </q-page>
 </template>
@@ -92,7 +96,7 @@ export default {
       // @todo Is this needed? Or let this be a setting?
       this.$q
         .dialog({
-          title: "Confirm",
+          title: "Delete Goal Permanently",
           message: "Are you sure??",
           cancel: true,
           persistent: true,
@@ -103,7 +107,7 @@ export default {
             1
           );
 
-          this.$q.notify("Todo deleted!");
+          this.$q.notify("Goal deleted!");
         });
     },
   },
