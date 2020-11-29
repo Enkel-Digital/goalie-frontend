@@ -39,15 +39,24 @@
         </q-item-section>
 
         <q-item-section v-if="goal.done" side>
+          <!-- Instead, we should implement the swipe thing like in native apps right? -->
+          <!-- Or maybe just 2 buttons, 1 for delete, 1 for info/details -->
           <q-btn
             @click.stop="deleteGoal(goal.id)"
             flat
             round
             dense
-            color="primary"
             icon="delete"
           />
         </q-item-section>
+
+        <q-btn
+          :to="{ name: 'goals-details', params: { goalID: goal.id } }"
+          flat
+          round
+          dense
+          icon="info"
+        />
       </q-item>
     </q-list>
 
